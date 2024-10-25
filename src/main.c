@@ -38,7 +38,6 @@ int main() {
     printf("%s", &valor_aquisicao);
 
     // Passo 4 | porcentagem da taxa de comsissão
-    pringf("")
-
+    printf("%s", &porcent_taxa);
 }
 
