@@ -38,6 +38,7 @@ system("chcp 65001; > NULL");
 int main() {
     lang_format(); // Chamada de função. Define o idioma de entrada de dados
 
+    // INício do BLOCO 1 (Entrada de dados)
     float input_valor_venda[10], input_valor_aquisicao[10], input_porcent_taxa[10]; // Declaração de variáveis | BLOCO 1
     float calc_valor_descont_taxa, calc_valor_lucro_din, calc_percent_lucro, calc_valor_venda_final; // Declaração de variáveis | BLOCO 2
 
@@ -45,15 +46,23 @@ int main() {
     printf("==============================\nBoas vindas ao Vendilson Jr!\n==============================\n\n");
 
     // Passo 2 | Valor de venda
-    printf("Insira o valor de venda que deseja atribuir ao produto:\n");
-    scanf("%d", &input_valor_venda);
+    printf("Insira o valor de venda que deseja atribuir ao produto: ");
+    scanf("%f", &input_valor_venda);
 
     // Passo 3 | Valor de aquisição
-    printf("%d", &input_valor_aquisicao);
+    printf("\nInsira o custo de aquisição\nDigite *0* caso não haja custo: ");
+    scanf("%f", &input_valor_aquisicao);
 
     // Passo 4 | porcentagem da taxa de comsissão
-    printf("%d", &input_porcent_taxa);
+    printf("\nInsira a porcentagem de comissão cobrada pela plataforma: ");
+    scanf("%f", &input_porcent_taxa);
+    // Final do BLOCO 1 (Entrada de dados)
 
-    // Passo 5 | Calcular o valor da taxa em cima do valor do produto
+    // Início do BLOCO 2 (Cálculos)
+    calc_valor_descont_taxa = (input_valor_venda[i] * input_porcent_taxa[i]) / 100; // Cálculo do desconto da taxa de comissão
+    calc_valor_lucro_din = (input_valor_venda[i] - input_valor_aquisicao[i] - calc_valor_descont_taxa); // Cálculo do lucro em dinheiro
+    calc_percent_lucro = (calc_valor_lucro_din / input_valor_aquisicao[i]) * 100; // Cálculo do lucro em porcentagem
+    calc_valor_venda_final = (input_valor_venda[i] - calc_valor_descont_taxa); // Cálculo do valor final em  dinheiro que será recebido pela venda
+
 }
 
