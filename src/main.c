@@ -46,13 +46,13 @@ int main() {
 
     // Passo 2 | Valor de venda
     printf("Insira o valor de venda que deseja atribuir ao produto:\n");
-    scanf("%s", &valor_venda);
+    scanf("%s", &input_valor_venda);
 
     // Passo 3 | Valor de aquisição
-    printf("%s", &valor_aquisicao);
+    printf("%s", &input_valor_aquisicao);
 
     // Passo 4 | porcentagem da taxa de comsissão
-    printf("%s", &porcent_taxa);
+    printf("%s", &input_porcent_taxa);
 
     // Passo 5 | Calcular o valor da taxa em cima do valor do produto
 }
