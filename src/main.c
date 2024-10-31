@@ -1,31 +1,45 @@
-// O QUE SERÁ UTILIZADO
+// O QUE SERÁ UTILIZADO?
 
 // 1. Variáveis
-// 2. Biblioteca Standard Input / output
-// 3. Bilioteca Importa a biblioteca Standartt Librabry
+// 2. Funções
+// 2. Bibliotecas Standard Input/output, Standart Librabry, Locale
 
-// ALGORITIMO
+// ALGORITIMO: BLOCO 1
 // Passo 1 Inserir um Menu inicial
 // Passo 2 inserir valor de venda do produto
 // Passo 3 inserir valor de aquisição do produto
 // Passo 4 inserir taxa de comissão de venda
 
+// ALGORITIMO: BLOCO 2
 // Passo 5 Calcular o valor da taxa em cima do valor do produto
 // Passo 6 calcular o valor de lucro (venda-custo-comissão)
 // Passo 7 Calcular o lucro em porcentagem
 // Passo 8 Calcular o valor final que será recebido pela venda
 
+// ALGORITIMO: BLOCO 3
 // Passo 9 Mostrar o valor em dinheiro será descontado pela taxa de comissão
 // Passo 10 mostrar o valor de lucro em porcentagem 
 // Passo 11 mostrar o valor de lucro em dinheiro
 // Passo 12 mostrar o valor final em dinheiro que será recebido pela venda
 
-#include <stdio.h>
-#include <stdlib.h>
+#include <stdio.h> // Importa a biblioteca "Standart Input Output Header(cabecalho)"
+#include <locale.h> // Importa a biblioteca para Formatação de idiomas
+#include <stdlib.h> // Importa a biblioteca Standart Librabry. Necessária para trabalhar com idiomas, especialmente strings e caracteres especiais.
+
+// Função que define o idioma de entrada de dados
+void setlocale() {
+    setlocale(LC_ALL, "pt_BR.UTF8");
+
+#ifdef _WIN32
+system("chcp 65001; > NULL");
+#endif
+}
 
 int main() {
-    // Declaração de variáveis de input
-    float valor_venda, valor_aquisicao, porcent_taxa;
+    setlocale(); // Chamada de função. Define o idioma de entrada de dados
+
+    float input_valor_venda[10], input_valor_aquisicao[10], input_porcent_taxa[10]; // Declaração de variáveis | BLOCO 1
+    float calc_valor_descont_taxa[10], calc_valor_lucro_din[10], calc_percent_lucro[10], calc_valor_venda_final[10]; // Declaração de variáveis | BLOCO 2
 
     // Passo 1 | Menu inicial
     printf("==============================\nBoas vindas ao Vendilson Jr!\n==============================\n\n");
@@ -39,5 +53,7 @@ int main() {
 
     // Passo 4 | porcentagem da taxa de comsissão
     printf("%s", &porcent_taxa);
+
+    // Passo 5 | Calcular o valor da taxa em cima do valor do produto
 }
 
