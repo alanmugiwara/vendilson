@@ -27,7 +27,7 @@
 #include <stdlib.h> // Importa a biblioteca Standart Librabry. Necessária para trabalhar com idiomas, especialmente strings e caracteres especiais.
 
 // Função que define o idioma de entrada de dados
-void setlocale() {
+void lang_format() {
     setlocale(LC_ALL, "pt_BR.UTF8");
 
 #ifdef _WIN32
@@ -36,7 +36,7 @@ system("chcp 65001; > NULL");
 }
 
 int main() {
-    setlocale(); // Chamada de função. Define o idioma de entrada de dados
+    lang_format(); // Chamada de função. Define o idioma de entrada de dados
 
     float input_valor_venda[10], input_valor_aquisicao[10], input_porcent_taxa[10]; // Declaração de variáveis | BLOCO 1
     float calc_valor_descont_taxa, calc_valor_lucro_din, calc_percent_lucro, calc_valor_venda_final; // Declaração de variáveis | BLOCO 2
@@ -46,13 +46,13 @@ int main() {
 
     // Passo 2 | Valor de venda
     printf("Insira o valor de venda que deseja atribuir ao produto:\n");
-    scanf("%s", &input_valor_venda);
+    scanf("%d", &input_valor_venda);
 
     // Passo 3 | Valor de aquisição
-    printf("%s", &input_valor_aquisicao);
+    printf("%d", &input_valor_aquisicao);
 
     // Passo 4 | porcentagem da taxa de comsissão
-    printf("%s", &input_porcent_taxa);
+    printf("%d", &input_porcent_taxa);
 
     // Passo 5 | Calcular o valor da taxa em cima do valor do produto
 }
