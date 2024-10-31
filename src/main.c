@@ -39,7 +39,7 @@ int main() {
     setlocale(); // Chamada de função. Define o idioma de entrada de dados
 
     float input_valor_venda[10], input_valor_aquisicao[10], input_porcent_taxa[10]; // Declaração de variáveis | BLOCO 1
-    float calc_valor_descont_taxa[10], calc_valor_lucro_din[10], calc_percent_lucro[10], calc_valor_venda_final[10]; // Declaração de variáveis | BLOCO 2
+    float calc_valor_descont_taxa, calc_valor_lucro_din, calc_percent_lucro, calc_valor_venda_final; // Declaração de variáveis | BLOCO 2
 
     // Passo 1 | Menu inicial
     printf("==============================\nBoas vindas ao Vendilson Jr!\n==============================\n\n");
