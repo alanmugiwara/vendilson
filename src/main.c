@@ -24,7 +24,7 @@
 
 #include <stdio.h> // Importa a biblioteca "Standart Input Output Header(cabecalho)"
 #include <locale.h> // Importa a biblioteca para Formatação de idiomas
-#include <stdlib.h> // Importa a biblioteca Standart Librabry. Necessária para trabalhar com idiomas, especialmente strings e caracteres especiais.
+#include <stdlib.h> // Importa a biblioteca Standard Librabry. Necessária para trabalhar com idiomas, especialmente strings e caracteres especiais.
 
 // Função que define o idioma de entrada de dados
 void lang_format() {
@@ -38,9 +38,10 @@ system("chcp 65001; > NULL");
 int main() {
     lang_format(); // Chamada de função. Define o idioma de entrada de dados
 
-    // INício do BLOCO 1 (Entrada de dados)
+    // Início do BLOCO 1 (Entrada de dados)
     float input_valor_venda, input_valor_aquisicao, input_porcent_taxa; // Declaração de variáveis | BLOCO 1
-    float calc_valor_descont_taxa, calc_valor_lucro_din, calc_percent_lucro, calc_valor_venda_final; // Declaração de variáveis | BLOCO 2
+    float calc_valor_descont_taxa, calc_valor_lucro_din_aquisicao, calc_valor_lucro_din_venda;
+    float calc_percent_lucro_aquisicao, calc_percent_lucro_venda; // Declaração de variáveis | BLOCO 2
 
     // Passo 1 | Menu inicial
 printf("==========================\n"
@@ -60,23 +61,26 @@ printf("==========================\n"
     printf("\nInsira o custo de aquisição\nDigite *0* caso não haja custo: ");
     scanf("%f", &input_valor_aquisicao);
 
-    // Passo 4 | porcentagem da taxa de comsissão
+    // Passo 4 | porcentagem da taxa de comissão
     printf("\nInsira a porcentagem de comissão cobrada pela plataforma: ");
     scanf("%f", &input_porcent_taxa);
     // Final do BLOCO 1 (Entrada de dados)
 
     // Início do BLOCO 2 (Cálculos)
     calc_valor_descont_taxa = (input_valor_venda * input_porcent_taxa) / 100; // Cálculo do desconto da taxa de comissão
-    calc_valor_lucro_din = input_valor_venda - input_valor_aquisicao - calc_valor_descont_taxa; // Cálculo do lucro em dinheiro
-    calc_percent_lucro = (calc_valor_lucro_din / input_valor_aquisicao) * 100; // Cálculo do lucro em porcentagem
-    calc_valor_venda_final = input_valor_venda - calc_valor_descont_taxa; // Cálculo do valor final em  dinheiro que será recebido pela venda
+    calc_valor_lucro_din_aquisicao = input_valor_venda - input_valor_aquisicao - calc_valor_descont_taxa; // Cálculo do lucro em dinheiro (com aquisição)
+    calc_valor_lucro_din_venda = input_valor_venda - calc_valor_descont_taxa; // Cálculo do lucro em dinheiro (somente venda)
+    calc_percent_lucro_aquisicao = (calc_valor_lucro_din_aquisicao / input_valor_aquisicao) * 100; // Cálculo do lucro em porcentagem (com aquisição)
+    calc_percent_lucro_venda = (calc_valor_lucro_din_venda / input_valor_venda) * 100; // Cálculo do lucro em porcentagem (somente venda)
     // Fim do BLOCO 2 (Cálculos)
 
     // Início do BLOCO 3 (Prints)
-    printf("\nValor em dinheiro será descontado pela taxa de comissão: %.2f\n", calc_valor_descont_taxa);
-    printf("Lucro em porcentagem: %.2f%%\n", calc_percent_lucro);
-    printf("Lucro em moeda: %.2f\n", calc_valor_lucro_din);
-    printf("Valor total em moeda recebido pela venda: %.2f\n", calc_valor_venda_final);
+    printf("\nValor em moeda descontado pela taxa de comissão: %.2f\n", calc_valor_descont_taxa);
+    printf("Porcentagem de lucro (inclundo custo de aquisição): %.2f%%\n", calc_percent_lucro_aquisicao);
+    printf("Porcentagem de lucro (somente pela venda): %.2f%%\n\n", calc_percent_lucro_venda);
+    printf("Lucro líquido em moeda (incluindo custos: aquisição+venda): %.2f\n", calc_valor_lucro_din_aquisicao);
+    printf("Lucro líquido em moeda (incluindo custos: venda): %.2f\n\n", calc_valor_lucro_din_venda);
+    // Fim do BLOCO 3 (Prints)
     
     return 0;
 
