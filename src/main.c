@@ -39,11 +39,18 @@ int main() {
     lang_format(); // Chamada de função. Define o idioma de entrada de dados
 
     // INício do BLOCO 1 (Entrada de dados)
-    float input_valor_venda[10], input_valor_aquisicao[10], input_porcent_taxa[10]; // Declaração de variáveis | BLOCO 1
+    float input_valor_venda, input_valor_aquisicao, input_porcent_taxa; // Declaração de variáveis | BLOCO 1
     float calc_valor_descont_taxa, calc_valor_lucro_din, calc_percent_lucro, calc_valor_venda_final; // Declaração de variáveis | BLOCO 2
 
     // Passo 1 | Menu inicial
-    printf("==============================\nBoas vindas ao Vendilson Jr!\n==============================\n\n");
+printf("==========================\n"
+       "Boas vindas ao Vendilson!\n"
+       "==========================\n\n"
+       "Ferramenta desenvolvida para te ajudar a calcular\n"
+       "lucro, prejuízo e taxas ao vender produtos em\n"
+       "plataformas de e-commerce. Facilite a precificação\n"
+       "de forma prática e rápida!\n\n"
+);
 
     // Passo 2 | Valor de venda
     printf("Insira o valor de venda que deseja atribuir ao produto: ");
@@ -59,10 +66,19 @@ int main() {
     // Final do BLOCO 1 (Entrada de dados)
 
     // Início do BLOCO 2 (Cálculos)
-    calc_valor_descont_taxa = (input_valor_venda[i] * input_porcent_taxa[i]) / 100; // Cálculo do desconto da taxa de comissão
-    calc_valor_lucro_din = (input_valor_venda[i] - input_valor_aquisicao[i] - calc_valor_descont_taxa); // Cálculo do lucro em dinheiro
-    calc_percent_lucro = (calc_valor_lucro_din / input_valor_aquisicao[i]) * 100; // Cálculo do lucro em porcentagem
-    calc_valor_venda_final = (input_valor_venda[i] - calc_valor_descont_taxa); // Cálculo do valor final em  dinheiro que será recebido pela venda
+    calc_valor_descont_taxa = (input_valor_venda * input_porcent_taxa) / 100; // Cálculo do desconto da taxa de comissão
+    calc_valor_lucro_din = input_valor_venda - input_valor_aquisicao - calc_valor_descont_taxa; // Cálculo do lucro em dinheiro
+    calc_percent_lucro = (calc_valor_lucro_din / input_valor_aquisicao) * 100; // Cálculo do lucro em porcentagem
+    calc_valor_venda_final = input_valor_venda - calc_valor_descont_taxa; // Cálculo do valor final em  dinheiro que será recebido pela venda
+    // Fim do BLOCO 2 (Cálculos)
+
+    // Início do BLOCO 3 (Prints)
+    printf("\nValor em dinheiro será descontado pela taxa de comissão: %.2f\n", calc_valor_descont_taxa);
+    printf("Lucro em porcentagem: %.2f%%\n", calc_percent_lucro);
+    printf("Lucro em moeda: %.2f\n", calc_valor_lucro_din);
+    printf("Valor total em moeda recebido pela venda: %.2f\n", calc_valor_venda_final);
+    
+    return 0;
 
 }
 
