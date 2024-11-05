@@ -7,7 +7,7 @@ void lang_format() {
     setlocale(LC_ALL, "pt_BR.UTF8");
 
 #ifdef _WIN32
-system("chcp 65001; > NULL");
+    system("chcp 65001 > NULL");
 #endif
 }
 
