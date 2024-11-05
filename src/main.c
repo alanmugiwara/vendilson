@@ -1,32 +1,8 @@
-// O QUE SERÁ UTILIZADO?
-
-// 1. Variáveis
-// 2. Funções
-// 2. Bibliotecas Standard Input/output, Standart Librabry, Locale
-
-// ALGORITIMO: BLOCO 1
-// Passo 1 Inserir um Menu inicial
-// Passo 2 inserir valor de venda do produto
-// Passo 3 inserir valor de aquisição do produto
-// Passo 4 inserir taxa de comissão de venda
-
-// ALGORITIMO: BLOCO 2
-// Passo 5 Calcular o valor da taxa em cima do valor do produto
-// Passo 6 calcular o valor de lucro (venda-custo-comissão)
-// Passo 7 Calcular o lucro em porcentagem
-// Passo 8 Calcular o valor final que será recebido pela venda
-
-// ALGORITIMO: BLOCO 3
-// Passo 9 Mostrar o valor em dinheiro será descontado pela taxa de comissão
-// Passo 10 mostrar o valor de lucro em porcentagem 
-// Passo 11 mostrar o valor de lucro em dinheiro
-// Passo 12 mostrar o valor final em dinheiro que será recebido pela venda
-
 #include <stdio.h> // Importa a biblioteca "Standart Input Output Header(cabecalho)"
 #include <locale.h> // Importa a biblioteca para Formatação de idiomas
 #include <stdlib.h> // Importa a biblioteca Standard Librabry. Necessária para trabalhar com idiomas, especialmente strings e caracteres especiais.
 
-// Função que define o idioma de entrada de dados
+// Função que define e formata o idioma de entrada de dados
 void lang_format() {
     setlocale(LC_ALL, "pt_BR.UTF8");
 
@@ -39,50 +15,54 @@ int main() {
     lang_format(); // Chamada de função. Define o idioma de entrada de dados
 
     // Início do BLOCO 1 (Entrada de dados)
-    float input_valor_venda, input_valor_aquisicao, input_porcent_taxa; // Declaração de variáveis | BLOCO 1
+    int input_porcent_taxa;
+    float input_valor_venda, input_valor_aquisicao; // Declaração de variáveis | BLOCO 1
     float calc_valor_descont_taxa, calc_valor_lucro_din_aquisicao, calc_valor_lucro_din_venda;
     float calc_percent_lucro_aquisicao, calc_percent_lucro_venda; // Declaração de variáveis | BLOCO 2
+    float test;
+    
+        // Início do BLOCO 1 (Interface e entradas)
+    printf("■■■■■■■■■■■■■■■■■■■■■■■■■\n"
+        "Boas vindas ao Vendilson!\n"
+        "■■■■■■■■■■■■■■■■■■■■■■■■■\n\n"
+        "══════════════════════════════════════════════════\n"
+        "Ferramenta desenvolvida para te ajudar a calcular\n"
+        "lucro, prejuízo e taxas ao vender produtos\n"
+        "em plataformas de e-commerce.\n\nNão fique no escuro! "
+        "Facilite a precificação.\n"
+        "Agora você vende que nem água, miseravi!\n"
+        "══════════════════════════════════════════════════\n\n"
+    );
 
-    // Passo 1 | Menu inicial
-printf("==========================\n"
-       "Boas vindas ao Vendilson!\n"
-       "==========================\n\n"
-       "Ferramenta desenvolvida para te ajudar a calcular\n"
-       "lucro, prejuízo e taxas ao vender produtos em\n"
-       "plataformas de e-commerce. Facilite a precificação\n"
-       "de forma prática e rápida!\n\n"
-);
-
-    // Passo 2 | Valor de venda
     printf("Insira o valor de venda que deseja atribuir ao produto: ");
     scanf("%f", &input_valor_venda);
-
-    // Passo 3 | Valor de aquisição
+    
     printf("\nInsira o custo de aquisição\nDigite *0* caso não haja custo: ");
     scanf("%f", &input_valor_aquisicao);
 
-    // Passo 4 | porcentagem da taxa de comissão
     printf("\nInsira a porcentagem de comissão cobrada pela plataforma: ");
-    scanf("%f", &input_porcent_taxa);
-    // Final do BLOCO 1 (Entrada de dados)
+    scanf("%d", &input_porcent_taxa);
+    // Início do BLOCO 1 (Interface e entradas)
 
     // Início do BLOCO 2 (Cálculos)
     calc_valor_descont_taxa = (input_valor_venda * input_porcent_taxa) / 100; // Cálculo do desconto da taxa de comissão
     calc_valor_lucro_din_aquisicao = input_valor_venda - input_valor_aquisicao - calc_valor_descont_taxa; // Cálculo do lucro em dinheiro (com aquisição)
     calc_valor_lucro_din_venda = input_valor_venda - calc_valor_descont_taxa; // Cálculo do lucro em dinheiro (somente venda)
     calc_percent_lucro_aquisicao = (calc_valor_lucro_din_aquisicao / input_valor_aquisicao) * 100; // Cálculo do lucro em porcentagem (com aquisição)
-    calc_percent_lucro_venda = (calc_valor_lucro_din_venda / input_valor_venda) * 100; // Cálculo do lucro em porcentagem (somente venda)
     // Fim do BLOCO 2 (Cálculos)
 
     // Início do BLOCO 3 (Prints)
-    printf("\nValor em moeda descontado pela taxa de comissão: %.2f\n", calc_valor_descont_taxa);
-    printf("Porcentagem de lucro (inclundo custo de aquisição): %.2f%%\n", calc_percent_lucro_aquisicao);
-    printf("Porcentagem de lucro (somente pela venda): %.2f%%\n\n", calc_percent_lucro_venda);
-    printf("Lucro líquido em moeda (incluindo custos: aquisição+venda): %.2f\n", calc_valor_lucro_din_aquisicao);
-    printf("Lucro líquido em moeda (incluindo custos: venda): %.2f\n\n", calc_valor_lucro_din_venda);
-    // Fim do BLOCO 3 (Prints)
-    
+    printf("%s %d%% %s %s -%.2f\n", "\nValor descontado pela taxa de comissão de", input_porcent_taxa, "foi:", "R$", calc_valor_descont_taxa);
+    printf("%s %s %.2f \n\n", "Valor recebido pela venda:", "R$", calc_valor_lucro_din_venda);
+   
+    if (calc_valor_lucro_din_aquisicao < 0 && calc_percent_lucro_aquisicao < 0) { //  Condição para definir lucro ou prejuízo em dinheiro
+                printf("%s %s -%.2f \n", "Você tomou um prejuízo em dinheiro de:", "R$", -calc_valor_lucro_din_aquisicao);
+                printf("%s -%.2f%% \n\n", "Você tomou um prejuízo em porcentagem de:", -calc_percent_lucro_aquisicao);
+    } else {
+            printf("%s +%.2f \n", "Lucro em dinheiro:", calc_valor_lucro_din_aquisicao);
+            printf("%s +%.2f%% \n\n", "Lucro em porcentagem:", calc_percent_lucro_aquisicao);
+    } // Fim do BLOCO 3 (Prints)
+
     return 0;
 
 }
-
