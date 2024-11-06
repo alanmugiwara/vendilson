@@ -2,13 +2,12 @@
 #include <locale.h> // Importa a biblioteca para Formatação de idiomas
 #include <stdlib.h> // Importa a biblioteca Standard Librabry. Necessária para trabalhar com idiomas, especialmente strings e caracteres especiais.
 
-// Função que define e formata o idioma de entrada de dados
-void lang_format() {
+void lang_format() { // Função que define e formata o idioma de entrada de dados
     setlocale(LC_ALL, "pt_BR.UTF8");
 
 #ifdef _WIN32
-    system("chcp 65001 > NULL");
-#endif
+    system("chcp 65001 > NUL"); // A função system permite dar instruções ao SO. Nesse caso
+#endif // chcp 65001 executa o terminal em .UTF8 ">" seta a saída disso, "NUL" é um dado (vazio).
 }
 
 int main() {
@@ -21,10 +20,10 @@ int main() {
     float calc_percent_lucro_aquisicao, calc_percent_lucro_venda; // Declaração de variáveis | BLOCO 2
     float test;
     
-        // Início do BLOCO 1 (Interface e entradas)
-    printf("■■■■■■■■■■■■■■■■■■■■■■■■■\n"
+    // Início do BLOCO 1 (Interface e entradas)
+    printf("■■■■■■■■■■■■■■■■■■■■■■■■■■\n"
         "Boas vindas ao Vendilson!\n"
-        "■■■■■■■■■■■■■■■■■■■■■■■■■\n\n"
+        "■■■■■■■■■■■■■■■■■■■■■■■■■■\n\n"
         "══════════════════════════════════════════════════\n"
         "Ferramenta desenvolvida para te ajudar a calcular\n"
         "lucro, prejuízo e taxas ao vender produtos\n"
@@ -42,7 +41,7 @@ int main() {
 
     printf("\nInsira a porcentagem de comissão cobrada pela plataforma: ");
     scanf("%d", &input_porcent_taxa);
-    // Início do BLOCO 1 (Interface e entradas)
+    // Fim do BLOCO 1 (Interface e entradas)
 
     // Início do BLOCO 2 (Cálculos)
     calc_valor_descont_taxa = (input_valor_venda * input_porcent_taxa) / 100; // Cálculo do desconto da taxa de comissão
@@ -59,10 +58,17 @@ int main() {
                 printf("%s %s -%.2f \n", "Você tomou um prejuízo em dinheiro de:", "R$", -calc_valor_lucro_din_aquisicao);
                 printf("%s -%.2f%% \n\n", "Você tomou um prejuízo em porcentagem de:", -calc_percent_lucro_aquisicao);
     } else {
-            printf("%s +%.2f \n", "Lucro em dinheiro:", calc_valor_lucro_din_aquisicao);
+            printf("%s %s +%.2f \n", "Lucro em dinheiro de:", "R$", calc_valor_lucro_din_aquisicao);
             printf("%s +%.2f%% \n\n", "Lucro em porcentagem:", calc_percent_lucro_aquisicao);
     } // Fim do BLOCO 3 (Prints)
 
-    return 0;
+#ifdef _WIN32 // // Chamada no SO para pausar a aplicação ao fim das operações
+    system("pause"); // sem o "pause" o binário fecha instantâneamente após o 3º input
+#else // condição pra qualquer SO que não Windows
+    printf("\nPressione qualquer tecla pra sair...");
+    getchar(); // Parâmetro pra ler uma entrada do SO sem parâmetro definino
+#endif
+
+    return 0; 
 
 }
