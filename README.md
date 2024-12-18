@@ -32,16 +32,20 @@ Vendilson é uma ferramenta desenvolvida em C afim de te ajudar a calcular lucro
    - Navegue até o diretório do projeto e compile o código:
 
      ```bash
-     gcc login-system-c.c -o login-system-c
+     gcc main.c -o login-system-c
      ```
 
 3. **Execute o Programa:**
-   - Após a compilação, execute o programa com o comando abaixo ou apenas execute o executável gerado:
+   - Após a compilação, execute o programa com o comando abaixo ou dê dois cliques no arquivo:
 
+   - GNULinux
      ```bash
      ./login-system-c
      ```
-     
+   - Windows
+     ```bash
+     login-system-c
+     ```
 4. **Insira os Dados:**
    - O programa irá solicitar os seguintes dados:
      - Valor de venda do produto
