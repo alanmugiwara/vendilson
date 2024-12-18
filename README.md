@@ -38,7 +38,7 @@ Vendilson é uma ferramenta desenvolvida em C afim de te ajudar a calcular lucro
 3. **Execute o Programa:**
    - Após a compilação, execute o programa com o comando abaixo ou dê dois cliques no arquivo:
 
-   - GNULinux
+   - GNU/Linux
      ```bash
      ./login-system-c
      ```
