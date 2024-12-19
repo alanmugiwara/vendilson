@@ -1,3 +1,16 @@
+[![made Language {generic badge}](https://img.shields.io/badge/Made%20with-C%20language-8A2BE2)](https://github.com/alanmugiwara)
+[![create date](https://badges.pufler.dev/created/alanmugiwara/vendilson?color=8A2BE2)](https://github.com/alanmugiwara)
+[![last update date](https://badges.pufler.dev/Updated/alanmugiwara/vendilson?color=8A2BE2)](https://github.com/alanmugiwara)
+[![Commits Badge](https://img.shields.io/github/commit-activity/m/alanmugiwara/vendilson.svg?color=8A2BE2)](https://github.com/alanmugiwara)
+
+[![contributors](https://img.shields.io/github/contributors/alanmugiwara/vendilson?color=8A2BE2)](https://github.com/alanmugiwara)
+[![issues counter](https://img.shields.io/github/issues/alanmugiwara/vendilson?color=8A2BE2)](https://github.com/alanmugiwara)
+[![repo size](https://img.shields.io/github/repo-size/alanmugiwara/vendilson?color=8A2BE2)](https://github.com/alanmugiwara)
+[![directory size](https://img.shields.io/github/directory-file-count/alanmugiwara/vendilson?color=8A2BE2)](https://github.com/alanmugiwara)
+
+[![last release](https://img.shields.io/github/v/release/alanmugiwara/romkeepilson2)](https://github.com/alanmugiwara)
+[![downloads counter](https://img.shields.io/github/downloads/alanmugiwara/romkeepilson/total)](https://github.com/alanmugiwara)
+
 ## Vendilson: Calculadora de Lucro para E-commerce
 
 Vendilson é uma ferramenta desenvolvida em C afim de te ajudar a calcular lucro, prejuízo e taxas ao vender produtos em plataformas de e-commerce. Facilite a precificação sem fazer cálculos mirabolantes!
